@@ -46,7 +46,7 @@
 
 ## 📂 Project Structure
 
-Assets/
+<pre> ```plaintext Assets/
 ├── Animations/ # Animation clip, controller cho nhân vật, zombie
 ├── Audio/ # Âm thanh: tiếng súng, tiếng zombie, nhạc nền
 ├── Materials/ # Vật liệu dùng cho nhân vật, vũ khí, bản đồ
@@ -68,6 +68,7 @@ Assets/
 ├── UI/ # Prefab các UI canvas (menu, gameover, HUD)
 └── TutorialInfo/ # Unity tạo sẵn (có thể xóa nếu không dùng)
 
+``` </pre>
 ---
 ## 🚀 How to Play
 
