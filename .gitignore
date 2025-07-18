@@ -7,9 +7,14 @@
 UserSettings/
 MemoryCaptures/
 .vs/
+# Ignore tất cả .csproj, nhưng ngoại lệ cho project chính
 *.csproj
-*.unityproj
+!Assembly-CSharp.csproj
+!Assembly-CSharp-Editor.csproj
+
+# Ignore tất cả .sln, trừ file chính
 *.sln
+!My project.sln
 *.user
 *.pidb
 *.booproj
