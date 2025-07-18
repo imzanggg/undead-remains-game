@@ -68,5 +68,6 @@ Assets/
 ├── UI/ # Prefab các UI canvas (menu, gameover, HUD)
 └── TutorialInfo/ # Unity tạo sẵn (có thể xóa nếu không dùng)
 
+---
 ## 🚀 How to Play
 
