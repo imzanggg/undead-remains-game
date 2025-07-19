@@ -11,7 +11,7 @@ using System.Reflection;
 public class ReadmeEditor : Editor {
 	
 	static string kShowedReadmeSessionStateName = "ReadmeEditor.showedReadme";
-	
+	//test
 	static float kSpace = 16f;
 	static ReadmeEditor()
 	{
