@@ -13,7 +13,7 @@ public class ReadmeEditor : Editor {
 	static string kShowedReadmeSessionStateName = "ReadmeEditor.showedReadme";
 	
 	static float kSpace = 16f;
-	
+	//lmao
 	static ReadmeEditor()
 	{
 		EditorApplication.delayCall += SelectReadmeAutomatically;
