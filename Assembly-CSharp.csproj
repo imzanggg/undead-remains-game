@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{F4F31D10-8085-BD43-9D6A-E6BCCB3C541A}</ProjectGuid>
+    <ProjectGuid>{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -61,7 +61,13 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.1.9f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Easy FPS\Scripts\MouseLookScript.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Easy FPS\Scripts\GunScript.cs" />
+    <Compile Include="Assets\Easy FPS\Scripts\GunInventory.cs" />
+    <Compile Include="Assets\Easy FPS\Scripts\BulletScript.cs" />
+    <Compile Include="Assets\Easy FPS\Scripts\PlayerMovementScript.cs" />
+    <Compile Include="Assets\Easy FPS\Scripts\DestroyAfterTimeParticle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -1103,10 +1109,6 @@
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
       <Private>False</Private>
@@ -1117,6 +1119,10 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
@@ -1306,19 +1312,19 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{0E0235B1-AA25-C259-3EE2-E4AF0AE8394A}</Project>
+      <Project>{C4670D74-53BA-CADB-D209-62996F2B0691}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
     <ProjectReference Include="URPWizard.csproj">
-      <Project>{B997C0FD-5832-23A4-3B10-AA05229605F0}</Project>
+      <Project>{88CFE7CA-E05D-1A48-1972-20A13479CF86}</Project>
       <Name>URPWizard</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.StarterAssets.csproj">
-      <Project>{548FCE16-46D8-E98F-258C-57DB02832F00}</Project>
+      <Project>{038EFD61-B28F-9483-5904-E7B805BF9409}</Project>
       <Name>Unity.StarterAssets</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.StarterAssets.Editor.csproj">
-      <Project>{FE49F4B3-976D-A2A9-7973-394C628AA398}</Project>
+      <Project>{507CD690-5C7F-924E-FF20-0B9D145CE426}</Project>
       <Name>Unity.StarterAssets.Editor</Name>
     </ProjectReference>
   </ItemGroup>
