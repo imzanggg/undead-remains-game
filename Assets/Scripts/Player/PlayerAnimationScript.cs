@@ -13,16 +13,24 @@ public class PlayerAnimationScript : MonoBehaviour
     {
         animator = GetComponent<Animator>();
 
-        // Find root and input/controller
-        root = transform.root;
-        input = root.GetComponentInChildren<StarterAssetsInputs>();
+        // go up to PlayerCapsule
+        root = transform.parent;
+
+        if (root == null)
+        {
+            Debug.LogError("Model is not a child of PlayerCapsule!");
+            return;
+        }
+
+        input = root.GetComponent<StarterAssetsInputs>();
         controller = root.GetComponent<CharacterController>();
 
         if (input == null)
-            Debug.LogError("StarterAssetsInputs not found in children of root!");
+            Debug.LogError("StarterAssetsInputs not found on PlayerCapsule!");
         if (controller == null)
-            Debug.LogError("CharacterController not found on root!");
+            Debug.LogError("CharacterController not found on PlayerCapsule!");
     }
+
 
 
     void Update()
@@ -40,15 +48,9 @@ public class PlayerAnimationScript : MonoBehaviour
         animator.SetFloat("MoveY", moveY);
 
         // Set state flags from input system
-        animator.SetBool("IsJumping", !controller.isGrounded);
+        animator.SetBool("IsJumping", input.jump);
         animator.SetBool("IsFiring", input.shoot);  
         animator.SetBool("IsReloading", input.reload);         
         animator.SetBool("IsGrenade", input.grenade);          
-
-        // Example trigger for hit animation
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            animator.SetTrigger("IsHit");
-        }
     }
 }
