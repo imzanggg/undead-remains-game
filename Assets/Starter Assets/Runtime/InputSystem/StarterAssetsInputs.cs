@@ -12,15 +12,17 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+        public bool shoot;
+        public bool reload;
+        public bool grenade;
 
-		[Header("Movement Settings")]
+        [Header("Movement Settings")]
 		public bool analogMovement;
 
 		[Header("Mouse Cursor Settings")]
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
 
-#if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());
@@ -43,10 +45,24 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
-#endif
+        public void OnShoot(InputValue value)
+        {
+            shoot = value.isPressed;
+        }
+
+        public void OnReload(InputValue value)
+        {
+            reload = value.isPressed;
+        }
+
+        public void OnGrenade(InputValue value)
+        {
+            grenade = value.isPressed;
+        }
 
 
-		public void MoveInput(Vector2 newMoveDirection)
+
+        public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
 		} 
