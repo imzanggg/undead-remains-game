@@ -5,52 +5,45 @@ using StarterAssets;
 public class PlayerAnimationScript : MonoBehaviour
 {
     private Animator animator;
-    private StarterAssetsInputs input; // from Starter Assets
+    private StarterAssetsInputs input;
     private CharacterController controller;
-    private Transform root; // root PlayerCapsule
 
     void Start()
     {
         animator = GetComponent<Animator>();
-
-        // go up to PlayerCapsule
-        root = transform.parent;
-
-        if (root == null)
-        {
-            Debug.LogError("Model is not a child of PlayerCapsule!");
-            return;
-        }
-
-        input = root.GetComponent<StarterAssetsInputs>();
-        controller = root.GetComponent<CharacterController>();
-
-        if (input == null)
-            Debug.LogError("StarterAssetsInputs not found on PlayerCapsule!");
-        if (controller == null)
-            Debug.LogError("CharacterController not found on PlayerCapsule!");
+        Transform parent = transform.parent;
+        input = parent.GetComponent<StarterAssetsInputs>();
+        controller = parent.GetComponent<CharacterController>();
     }
-
-
 
     void Update()
     {
-        // Movement input values (-1 to 1)
-        float moveX = input.move.x;
-        float moveY = input.move.y;
+        if (input == null || animator == null) return;
 
-        // Approximate speed from CharacterController
-        float speed = new Vector2(controller.velocity.x, controller.velocity.z).magnitude;
-
-        // Set movement parameters
-        animator.SetFloat("Speed", speed);
-        animator.SetFloat("MoveX", moveX);
-        animator.SetFloat("MoveY", moveY);
-
-        // Set state flags from input system
+        // Movement
+        animator.SetFloat("MoveX", input.move.x);
+        animator.SetFloat("MoveZ", input.move.y);
+        animator.SetBool("IsRunning", input.sprint);
         animator.SetBool("IsJumping", input.jump);
-        animator.SetBool("IsFiring", input.shoot);  
-        animator.SetBool("IsReloading", input.reload);         
-        animator.SetBool("IsGrenade", input.grenade);          
+
+        // One-shot animation booleans (mimic Jump)
+        animator.SetBool("IsFiring", input.shoot);
+        //animator.SetBool("IsReloading", input.reload);
+        //animator.SetBool("IsGrenade", input.grenade);
+        if (input.reload)
+    {
+        // handle reload logic here if needed
+        animator.SetTrigger("Reload");  // or SetBool("IsReloading", true)
+        //animator.ResetTrigger("IsReloading");
+        input.reload = false; // reset after firing once
+    }
+
+    if (input.grenade)
+    {
+        // handle grenade logic here if needed
+        animator.SetTrigger("Grenade");  // or SetBool("IsGrenade", true)
+        //animator.ResetTrigger("IsGrenade");
+        input.grenade = false; // reset after firing once
+    }
     }
 }
